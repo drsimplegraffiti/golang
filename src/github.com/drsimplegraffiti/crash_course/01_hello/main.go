@@ -5,5 +5,10 @@ import (
 )
 
 func main(){
- fmt.Println("Hello world😀😀")
+ fmt.Println("Hello worldvaw😀😀")
+ a := 50
+ b := &a
+
+ c := a + *b
+ fmt.Println(c)
 }
