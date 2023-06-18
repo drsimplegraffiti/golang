@@ -1,14 +1,22 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
+	"os"
 )
 
-func main(){
- fmt.Println("Hello world😀😀")
- a := 50
- b := &a // the & operator gives the address of the variable
 
- c := a + *b // the * operator gives the value stored at an address when you have the address
- fmt.Println(c)
+
+func main() {
+	fmt.Println("Hello World")
+	f, err := os.Open("test.txt")
+	if err != nil {
+		fmt.Println("Error" , err)
+	}
+	defer f.Close() // defer will execute at the end of the function
+
+	// Read the file
+	rf := make([]byte, 128)
+	f.Read(rf)
+	fmt.Println(string(rf))
 }
